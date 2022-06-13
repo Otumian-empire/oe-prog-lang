@@ -1,0 +1,36 @@
+Creating a programming language or compiler
+
+We will de-sugar the syntax of javascript and python and parser tongue
+
+Learn parser tongue and racket.
+
+define data structures than syntax
+
+define an arithmetic expressions. 
+Most operators a binary operators which takes operands where an operand
+can be a number or another operand
+
+(define-type ArithC
+    [num (n number?)]
+    [plus (l ArithC?) (r ArithC)]
+    [mult ((l ArithC?) (r ArithC)])
+
+Assuming we write up and expression, the operands can be either an operation: plus
+or mult and, a number.
+
+(define (interp e)
+    (type-case ArithC e
+        [num (n) n]
+        [plus (l r) (+ (interp l) 
+                        (interp r))]
+
+        [mult (l r) (* (interp l) 
+                        (interp r))]))
+
+
+
+
+
+We will have to define num, mult and plus
+
+
